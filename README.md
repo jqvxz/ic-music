@@ -7,7 +7,11 @@ A simple electron program that allows the user to listen to any track or podcast
 ## Installation 
 
 ```cmd
-git clone....
+git clone https://github.com/jqvxz/ic-music
+cd ic-music
+call install.bat
+npm install
+npm start
 ```
 
 
