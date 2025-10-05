@@ -1,0 +1,426 @@
+/* --- Global Styles & Dark Mode Base --- */
+* {
+    user-select: none;
+    -webkit-user-select: none;
+    box-sizing: border-box;
+}
+
+:root {
+    /* FONT SIZES */
+    --font-size-base: 14px;
+    --font-size-large: 16px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: transparent;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 8px;
+    box-shadow: 0 0 2px #222 inset;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: rgb(240, 240, 240);
+    overflow: hidden;
+    font-size: var(--font-size-base);
+}
+
+/* --- Main App Layout --- */
+.app-container {
+    display: grid;
+    height: 100vh;
+    padding: 20px;
+    grid-template-areas:
+        "sidebar search"
+        "sidebar main"
+        "footer footer";
+    grid-template-rows: 95px 1fr 95px;
+    grid-template-columns: 315px 1fr;
+    gap: 20px;
+}
+
+/* --- "Boxed" Module Styling --- */
+.left-sidebar,
+.search-panel,
+.main-content,
+.playback-bar {
+    background-color: #1e1e1e;
+    border: 2px solid #333;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+/* --- Modified Sidebar / Library and History --- */
+.left-sidebar {
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+.tab-container {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.tab-container .panel-header {
+    text-align: left;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #333;
+    flex-shrink: 0;
+}
+
+.tab-container .panel-header h2 {
+    font-size: var(--font-size-large);
+    margin: 0;
+}
+
+.tab-container .sidebar-nav {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.song-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Left sidebar library items - single line text, no icon */
+.song-list .item {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-right: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-bottom: 5px;
+
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.song-list .item:last-child {
+    margin-bottom: 0;
+}
+
+.song-list .item:hover {
+    background-color: #2a2a2a;
+}
+
+.song-list .item span {
+    font-weight: bold;
+    font-size: var(--font-size-large);
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.delete-icon {
+    user-select: none;
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+    font-size: 28px;
+    vertical-align: middle;
+    color: #da8f27;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+/* --- Search Panel --- */
+.search-panel {
+    grid-area: search;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+#searchInput {
+    flex-grow: 1;
+    padding: 12px 12px;
+    background-color: #121212;
+    border: 2px solid #333;
+    border-radius: 8px;
+    color: rgb(240, 240, 240);
+    font-size: var(--font-size-base);
+}
+
+/* --- Action Button Styling (Search/Save) --- */
+.action-button {
+    background-color: transparent;
+    padding: 10px;
+    width: 120px;
+    transition: 0.4s;
+    color: rgb(240, 240, 240);
+    font-size: var(--font-size-base);
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.search-button {
+    border: 2px solid #006340;
+}
+
+.save-button {
+    border: 2px solid #da8f27;
+}
+
+.search-button:hover {
+    background-color: #006340;
+}
+
+.save-button:hover {
+    background-color: #da8f27;
+}
+
+/* --- Main content scrollable to preserve footer --- */
+.main-content {
+    grid-area: main;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.library-grid {
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    padding: 25px;
+    flex-grow: 1;
+}
+
+.grid-item {
+    background-color: #121212;
+    border: 2px solid #333;
+    border-radius: 15px;
+    padding: 25px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.grid-item:hover {
+    background-color: #2a2a2a;
+}
+
+.item-artwork-placeholder {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+}
+
+/* Separator line between artwork and info in grid items */
+.separator {
+    width: 2px;
+    background-color: #333;
+    align-self: stretch;
+    margin: 0 25px;
+}
+
+.item-info {
+    text-align: left;
+    flex-grow: 1;
+}
+
+.item-title {
+    font-weight: bold;
+    font-size: var(--font-size-large);
+}
+
+/* Link styling */
+.item-link {
+    color: #a8a8c0;
+    font-weight: normal;
+    margin-top: 4px;
+    display: block;
+    text-decoration: underline;
+}
+
+.item-link:hover {
+    text-decoration: underline;
+}
+
+/* --- Updated Footer Playback Bar --- */
+.playback-bar {
+    grid-area: footer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.song-details {
+    display: flex;
+    align-items: center;
+    min-width: 300px;
+}
+
+.song-artwork-sm {
+    width: 56px;
+    height: 56px;
+    background-color: #2a2a2a;
+    margin-right: 15px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.song-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.song-title {
+    font-weight: bold;
+    font-size: var(--font-size-large);
+}
+
+.song-artist {
+    color: #a8a8c0;
+    margin-top: 4px;
+}
+
+/* --- Updated Player Controls --- */
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    gap: 20px;
+}
+
+.playback-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.playback-button {
+    background-color: transparent;
+    border: 2px solid #333;
+    color: rgb(240, 240, 240);
+    width: 80px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+    font-size: var(--font-size-base);
+    font-weight: bold;
+}
+
+#playButton {
+    padding: 0;
+}
+
+#pauseButton {
+    padding: 0;
+}
+
+.playback-button:hover {
+    background-color: #2a2a2a;
+    border-color: #555;
+}
+
+/* --- Updated Volume Slider to Match Progress Bar --- */
+#volumeSlider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 150px;
+    height: 6px;
+    background: #121212;
+    border: 1px solid #333;
+    border-radius: 3px;
+    outline: none;
+    margin-left: 10px;
+}
+
+#volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: rgb(240, 240, 240);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+#volumeSlider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: rgb(240, 240, 240);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.progress-bar-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 6px;
+    background-color: #121212;
+    border: 1px solid #333;
+    border-radius: 3px;
+}
+
+.progress-bar-fg {
+    height: 100%;
+    width: 40%;
+    background-color: rgb(240, 240, 240);
+    border-radius: 3px;
+}
+
+.footer-actions {
+    display: flex;
+    justify-content: flex-end;
+    min-width: 120px;
+}

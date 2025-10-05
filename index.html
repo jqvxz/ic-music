@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>ic-music pre</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="render.js" defer></script>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="left-sidebar">
+            <div class="tab-container" style="flex: 1 1 100%;">
+                <div class="panel-header">
+                    <h2>LIBRARY</h2>
+                </div>
+                <nav class="sidebar-nav" style="height: calc(100% - 50px); overflow-y: auto;">
+                    <ul id="lastPlayedList" class="song-list"></ul>
+                </nav>
+            </div>
+            <!--
+            <div class="tab-container" style="display:none;">
+                <div class="panel-header">
+                    <h2>HISTORY</h2>
+                </div>
+                <nav class="sidebar-nav">
+                    <ul id="historyList" class="song-list">
+                        <li class="item"><span>Track 1</span></li>
+                        <li class="item"><span>Track 2</span></li>
+                        <li class="item"><span>Track 3</span></li>
+                        <li class="item"><span>Track 4</span></li>
+                    </ul>
+                </nav>
+            </div>
+            -->
+        </aside>
+        <header class="search-panel">
+            <div class="search-wrapper">
+                <input type="text" id="searchInput" placeholder="Download music (youtube)" autofocus />
+                <button id="safeSearchButton" class="action-button save-button">LOAD</button>
+                <button id="fileButton" class="action-button search-button">IMPORT</button>
+            </div>
+        </header>
+        <main class="main-content">
+            <div id="libraryGrid" class="library-grid"></div>
+        </main>
+        <footer class="playback-bar">
+            <div class="song-details">
+                <div class="song-artwork-sm"></div>
+                <div class="song-info">
+                    <span class="song-title">There is no title currently playing</span>
+                    <a
+                        href=""
+                        target=""
+                        rel="noopener noreferrer"
+                        class="item-link"
+                        ><s>YouTube Link</s></a
+                    >
+                </div>
+            </div>
+            <div class="player-controls">
+                <button id="playButton" class="playback-button">PLAY</button>
+                <button id="pauseButton" class="playback-button">PAUSE</button>
+                <input
+                    id="volumeSlider"
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    value="1"
+                    title="Volume"
+                    style="width: 150px; margin-left: 10px;"
+                />
+                <div class="progress-bar-container">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-actions">
+                <button id="randomTrackButton" class="action-button save-button">RANDOM</button>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
