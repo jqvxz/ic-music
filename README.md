@@ -35,6 +35,7 @@ npm start
 - Fix stability issues
 - Allow higher volume
 - Play next song automatically
+- Include youtube link in music container
 
 ## UI
 
