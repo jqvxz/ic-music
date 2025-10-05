@@ -24,7 +24,7 @@ git clone....
 - Import your own mp3 files
 - Fast usage and easy setup
 
-## OK GARMIN 🎵 VIDEO SPEICHERN🎶🎶
+## UI
 
 <img width="1386" height="793" alt="image" src="https://github.com/user-attachments/assets/88216794-45bf-4a5d-b422-6c7972d848ca" />
 
