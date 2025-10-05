@@ -28,6 +28,14 @@ npm start
 - Import your own mp3 files
 - Fast usage and easy setup
 
+## ToDo
+
+- Playlist and History tab
+- Soundcloud fetch support (?)
+- Fix stability issues
+- Allow higher volume
+- Play next song automatically
+
 ## UI
 
 <img width="1386" height="793" alt="image" src="https://github.com/user-attachments/assets/88216794-45bf-4a5d-b422-6c7972d848ca" />
