@@ -1,5 +1,5 @@
 
-## IC-MUSIC - Intro
+## icmusic - Intro
 
 A simple electron program that allows the user to listen to any track or podcast published on youtube
 
