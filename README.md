@@ -5,6 +5,8 @@ A simple electron program that allows the user to listen to any track or podcast
 
 
 ## Installation 
+For legal reasons, I won't provide an installer or compiled version at this time
+The program currently only works when run within its environment:
 
 ```cmd
 git clone https://github.com/jqvxz/ic-music
@@ -18,7 +20,6 @@ npm start
 ## Authors
 
 - [@jqvxz](https://github.com/jqvxz)
-
 
 ## Features
 
