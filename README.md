@@ -5,7 +5,7 @@ A simple electron program that allows the user to listen to any track or podcast
 
 
 ## Installation 
-For legal reasons, I won't provide an installer or compiled version at this time
+For legal reasons, I won't provide an installer or compiled version at this time.
 The program currently only works when run within its environment:
 
 ```cmd
